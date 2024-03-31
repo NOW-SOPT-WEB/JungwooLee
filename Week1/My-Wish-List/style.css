@@ -1,2 +1,21 @@
 /*reset css*/
 @import url("./reset.css");
+
+/*font-setting*/
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Jua", sans-serif;
+}
+
+/* header */
+
+.header {
+  width: 100%;
+  height: 7rem;
+  border: 1px solid red;
+}
