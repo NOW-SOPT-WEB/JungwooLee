@@ -62,6 +62,7 @@ body {
   display: flex;
 
   width: 100%;
+  margin-top: 8rem;
 }
 
 /* aside */
@@ -126,4 +127,58 @@ body {
   font-size: 2.2rem;
 
   background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+}
+
+/* main */
+
+.main_wrapper {
+  width: calc(100% - 30rem);
+  padding-right: 15rem;
+}
+
+/* banner */
+
+.slide_banner_section {
+  width: 100%;
+  height: 20rem;
+  margin-top: 5rem;
+
+  overflow: hidden;
+}
+
+.slide_banner {
+  height: 20rem;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.slides {
+  width: calc(22rem * 10);
+  height: 100%;
+
+  display: flex;
+  column-gap: 2rem;
+
+  animation: slide 20s infinite linear;
+}
+
+.slide_item {
+  width: 20rem;
+  height: 100%;
+  flex: 0 0 auto;
+}
+
+.img_slide_item {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
 }
