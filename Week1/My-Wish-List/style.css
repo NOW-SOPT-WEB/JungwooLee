@@ -4,6 +4,130 @@
 /*font-setting*/
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.07);
+  }
+}
+
+@media screen and (max-width: 1361px) {
+  .slide_banner_section {
+    width: 90.4rem;
+  }
+
+  .section_wrapper {
+    width: 90.4rem;
+  }
+
+  .section_items {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .section_item {
+    height: 32.3rem;
+  }
+
+  .name {
+    font-size: 2.7rem;
+  }
+
+  .price {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 1205px) {
+  .slide_banner_section {
+    width: 75.3rem;
+  }
+
+  .section_wrapper {
+    width: 75.3rem;
+  }
+
+  .section_items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .section_item {
+    height: 36.4rem;
+  }
+
+  .product_name {
+    font-size: 3rem;
+  }
+
+  .product_price {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 1125px) {
+  .slide_banner_section {
+    width: 67.3rem;
+  }
+
+  .section_wrapper {
+    width: 67.3rem;
+  }
+
+  .section_items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section_item {
+    height: 50rem;
+  }
+
+  .product_name {
+    font-size: 3.5rem;
+  }
+
+  .product_price {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 1012px) {
+  .slide_banner_section {
+    width: 56.2rem;
+  }
+
+  .section_wrapper {
+    width: 56.2rem;
+  }
+
+  .section_items {
+    grid-template-columns: 1fr;
+  }
+
+  .section_item {
+    height: 86rem;
+  }
+
+  .product_name {
+    font-size: 5rem;
+  }
+
+  .product_price {
+    font-size: 4rem;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -129,9 +253,10 @@ body {
 }
 
 .nav_button_inner:hover {
+  color: white;
   font-size: 2.2rem;
 
-  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 }
 
 /* main */
@@ -160,16 +285,6 @@ body {
   animation: slide 30s infinite linear;
 }
 
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
 .slides {
   width: calc(22rem * 10);
   height: 100%;
@@ -190,6 +305,8 @@ body {
 
   object-fit: cover;
 }
+
+/* section */
 
 .section_wrapper {
   width: 106.2rem;
@@ -234,16 +351,6 @@ body {
   background-image: linear-gradient(to top, #88d3ce 0%, #6e45e2 100%);
 }
 
-@keyframes bounce {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.07);
-  }
-}
-
 .section_item:hover {
   cursor: pointer;
 
@@ -277,109 +384,7 @@ body {
   font-weight: 500;
 }
 
-@media screen and (max-width: 1361px) {
-  .slide_banner_section {
-    width: 90.4rem;
-  }
-
-  .section_wrapper {
-    width: 90.4rem;
-  }
-
-  .section_items {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .section_item {
-    height: 32.3rem;
-  }
-
-  .name {
-    font-size: 2.7rem;
-  }
-
-  .price {
-    font-size: 1.7rem;
-  }
-}
-
-@media screen and (max-width: 1205px) {
-  .slide_banner_section {
-    width: 75.3rem;
-  }
-
-  .section_wrapper {
-    width: 75.3rem;
-  }
-
-  .section_items {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .section_item {
-    height: 36.4rem;
-  }
-
-  .product_name {
-    font-size: 3rem;
-  }
-
-  .product_price {
-    font-size: 2rem;
-  }
-}
-
-@media screen and (max-width: 1125px) {
-  .slide_banner_section {
-    width: 67.3rem;
-  }
-
-  .section_wrapper {
-    width: 67.3rem;
-  }
-
-  .section_items {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .section_item {
-    height: 50rem;
-  }
-
-  .product_name {
-    font-size: 3.5rem;
-  }
-
-  .product_price {
-    font-size: 2.5rem;
-  }
-}
-
-@media screen and (max-width: 1012px) {
-  .slide_banner_section {
-    width: 56.2rem;
-  }
-
-  .section_wrapper {
-    width: 56.2rem;
-  }
-
-  .section_items {
-    grid-template-columns: 1fr;
-  }
-
-  .section_item {
-    height: 86rem;
-  }
-
-  .product_name {
-    font-size: 5rem;
-  }
-
-  .product_price {
-    font-size: 4rem;
-  }
-}
+/* footer */
 
 .footer {
   display: flex;
