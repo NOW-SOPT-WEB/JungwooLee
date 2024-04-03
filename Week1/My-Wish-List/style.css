@@ -108,10 +108,6 @@ body {
 }
 
 .nav_bar_section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   width: 100%;
   height: 25%;
 }
@@ -119,11 +115,20 @@ body {
 .nav_button {
   width: 100%;
   height: 100%;
+}
+
+.nav_button_inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
 
   font-size: 2rem;
 }
 
-.nav_button:hover {
+.nav_button_inner:hover {
   font-size: 2.2rem;
 
   background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
@@ -141,7 +146,7 @@ body {
 .slide_banner_section {
   width: 106.2rem;
   height: 20rem;
-  margin: 5rem 0;
+  margin: 5rem 0 2rem 0;
 
   overflow: hidden;
 }
@@ -188,7 +193,7 @@ body {
 
 .section_wrapper {
   width: 106.2rem;
-  padding-top: 5rem;
+  padding-top: 10rem;
 }
 
 .section_header {
