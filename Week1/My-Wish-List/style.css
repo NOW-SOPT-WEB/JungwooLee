@@ -185,3 +185,177 @@ body {
 
   object-fit: cover;
 }
+
+.section_wrapper {
+  width: 106.2rem;
+  padding-top: 5rem;
+}
+
+.section_header {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 6rem;
+  padding-left: 4rem;
+  margin-bottom: 3rem;
+
+  background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
+}
+
+.section_header_title {
+  font-size: 3.5rem;
+}
+
+.section_items {
+  display: grid;
+  column-gap: 2rem;
+  row-gap: 2rem;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: space-between;
+}
+
+.section_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  height: 30rem;
+  padding: 7% 0;
+
+  border-radius: 1.5rem;
+
+  background-color: gray;
+}
+
+.section_item_img {
+  width: 80%;
+}
+
+.heart_button {
+  width: 10%;
+  height: 10%;
+
+  margin-top: 10%;
+}
+
+.heart_button path:hover {
+  fill: #be2e22;
+}
+
+.product_name {
+  margin-top: 5%;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.product_price {
+  margin-top: 5%;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1361px) {
+  .slide_banner_section {
+    width: 90.4rem;
+  }
+
+  .section_wrapper {
+    width: 90.4rem;
+  }
+
+  .section_items {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .section_item {
+    height: 32.3rem;
+  }
+
+  .name {
+    font-size: 2.7rem;
+  }
+
+  .price {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 1205px) {
+  .slide_banner_section {
+    width: 75.3rem;
+  }
+
+  .section_wrapper {
+    width: 75.3rem;
+  }
+
+  .section_items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .section_item {
+    height: 36.4rem;
+  }
+
+  .product_name {
+    font-size: 3rem;
+  }
+
+  .product_price {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 1125px) {
+  .slide_banner_section {
+    width: 67.3rem;
+  }
+
+  .section_wrapper {
+    width: 67.3rem;
+  }
+
+  .section_items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section_item {
+    height: 50rem;
+  }
+
+  .product_name {
+    font-size: 3.5rem;
+  }
+
+  .product_price {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 1012px) {
+  .slide_banner_section {
+    width: 56.2rem;
+  }
+
+  .section_wrapper {
+    width: 56.2rem;
+  }
+
+  .section_items {
+    grid-template-columns: 1fr;
+  }
+
+  .section_item {
+    height: 86rem;
+  }
+
+  .product_name {
+    font-size: 5rem;
+  }
+
+  .product_price {
+    font-size: 4rem;
+  }
+}
