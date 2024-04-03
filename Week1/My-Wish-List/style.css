@@ -234,6 +234,22 @@ body {
   background-image: linear-gradient(to top, #88d3ce 0%, #6e45e2 100%);
 }
 
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.07);
+  }
+}
+
+.section_item:hover {
+  cursor: pointer;
+
+  animation: bounce 1.3s infinite ease-in-out;
+}
+
 .section_item_img {
   width: 80%;
 }
