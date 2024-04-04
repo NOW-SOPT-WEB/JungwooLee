@@ -28,3 +28,56 @@ body {
 .header_text {
   font-size: 6rem;
 }
+
+/* main */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* input_section */
+
+.input_section {
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
+
+  margin: 4rem 0;
+}
+
+.to_do_input {
+  width: 40rem;
+  height: 4.5rem;
+  padding: 0 1.5rem;
+
+  font-size: 2.3rem;
+
+  outline: 0.1rem solid gray;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.to_do_input:focus {
+  outline: 0.15rem solid black;
+}
+
+.add_button {
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem;
+
+  border-radius: 0.5rem;
+
+  background-color: #495057;
+}
+
+.add_button:hover {
+  background-color: green;
+}
+
+.add_button_icon {
+  width: 2rem;
+  height: 2rem;
+}
