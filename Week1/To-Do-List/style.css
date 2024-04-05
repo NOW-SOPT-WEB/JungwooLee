@@ -3,6 +3,16 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
 
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
 * {
   font-family: "Nanum Pen Script", cursive;
 }
@@ -47,7 +57,7 @@ body {
   margin: 4rem 0;
 }
 
-.to_do_input {
+.todo_input {
   width: 40rem;
   height: 4.5rem;
   padding: 0 1.5rem;
@@ -59,7 +69,7 @@ body {
   border-radius: 0.5rem;
 }
 
-.to_do_input:focus {
+.todo_input:focus {
   outline: 0.15rem solid black;
 }
 
@@ -78,6 +88,66 @@ body {
 }
 
 .add_button_icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* todo_list_section */
+
+.todo_list_section {
+  display: flex;
+  margin-top: 5rem;
+
+  column-gap: 20rem;
+}
+
+.sub_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 2rem 0;
+}
+
+.todo_list_title {
+  font-size: 5rem;
+}
+
+.todo_list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+
+  margin-top: 3rem;
+}
+
+.todo_list_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 30rem;
+  padding: 1.5rem 2rem;
+
+  border-radius: 1rem;
+
+  background-color: white;
+  box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+
+  animation: bounce 1s infinite;
+}
+
+.todo_text {
+  width: 85%;
+  font-size: 2.3rem;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+.x_button {
   width: 2rem;
   height: 2rem;
 }
