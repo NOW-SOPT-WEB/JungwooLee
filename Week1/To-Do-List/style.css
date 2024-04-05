@@ -92,13 +92,13 @@ body {
   height: 2rem;
 }
 
-/* todo_list_section */
+/* todo_section */
 
 .todo_list_section {
   display: flex;
-  margin-top: 5rem;
-
   column-gap: 20rem;
+
+  margin-top: 5rem;
 }
 
 .sub_section {
@@ -139,6 +139,7 @@ body {
 
 .todo_text {
   width: 85%;
+
   font-size: 2.3rem;
 
   overflow: hidden;
