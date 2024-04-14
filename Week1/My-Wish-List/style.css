@@ -1,6 +1,3 @@
-/*reset css*/
-@import url("./reset.css");
-
 /*font-setting*/
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 
@@ -133,11 +130,6 @@ body {
 }
 
 .nav_button {
-  width: 100%;
-  height: 100%;
-}
-
-.nav_button_inner {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,7 +140,7 @@ body {
   font-size: 2rem;
 }
 
-.nav_button_inner:hover {
+.nav_button:hover {
   color: white;
   font-size: 2.2rem;
 
