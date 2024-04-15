@@ -68,3 +68,5 @@ filterButtons.forEach((button) => {
     filterShoppingList(category);
   });
 });
+
+renderShoppingList(shoppingList);
