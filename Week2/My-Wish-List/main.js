@@ -81,6 +81,24 @@ headerLogoButton.addEventListener(
   () => (window.location.href = "./index.html")
 );
 
+const rightMenuModal = document.querySelector(".right_menu_modal");
+
+const showModal = () => {
+  rightMenuModal.classList.remove("modal_hide");
+  rightMenuModal.classList.add("modal_show");
+};
+
+const hideModal = () => {
+  rightMenuModal.classList.remove("modal_show");
+  rightMenuModal.classList.add("modal_hide");
+};
+
+const hamburgerButton = document.querySelector(".hamburger_button");
+hamburgerButton.addEventListener("click", showModal);
+
+const closeModalButton = document.querySelector(".close_modal_button");
+closeModalButton.addEventListener("click", hideModal);
+
 //초기 렌더링
 
 renderShoppingList(shoppingList);
