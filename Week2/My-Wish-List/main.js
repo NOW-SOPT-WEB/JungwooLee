@@ -67,10 +67,18 @@ const filterShoppingList = (category) => {
 };
 
 filterButtons.forEach((button) => {
-  button.addEventListener("click", function () {
+  button.addEventListener("click", () => {
     const category = this.id;
     filterShoppingList(category);
   });
 });
+
+const headerLogoButton = document.querySelector(".img_header_logo");
+headerLogoButton.addEventListener(
+  "click",
+  () => (window.location.href = "./index.html")
+);
+
+//초기 렌더링
 
 renderShoppingList(shoppingList);
