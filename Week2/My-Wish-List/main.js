@@ -66,8 +66,10 @@ const filterShoppingList = (category) => {
     document.getElementById(category).textContent;
 };
 
+console.log(filterButtons);
+
 filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
+  button.addEventListener("click", function () {
     const category = this.id;
     filterShoppingList(category);
   });
