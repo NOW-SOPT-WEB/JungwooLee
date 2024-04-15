@@ -60,6 +60,10 @@ const filterShoppingList = (category) => {
       : shoppingList.filter((item) => item.category === category);
   console.log(filteredList);
   renderShoppingList(filteredList);
+
+  const sectionHeaderTitle = document.querySelector(".section_header_title");
+  sectionHeaderTitle.textContent =
+    document.getElementById(category).textContent;
 };
 
 filterButtons.forEach((button) => {
