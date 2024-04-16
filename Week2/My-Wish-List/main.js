@@ -1,5 +1,18 @@
 import { shoppingList } from "./constants.js";
 
+const cartList = [];
+
+const addToCart = (item) => {
+  const idx = cartList.findIndex((cartItem) => cartItem.id === item.id);
+
+  if (idx === -1) {
+    cartList.push(item);
+    sessionStorage.setItem("cartList", JSON.stringify(cartList));
+  } else {
+    alert("이미 장바구니에 담긴 상품입니다!");
+  }
+};
+
 const renderShoppingList = (shoppingList) => {
   const sectionItems = document.querySelector(".section_items");
 
@@ -46,6 +59,11 @@ const renderShoppingList = (shoppingList) => {
     sectionItem.appendChild(heartButton);
     sectionItem.appendChild(productName);
     sectionItem.appendChild(productPrice);
+
+    sectionItem.addEventListener("click", () => {
+      console.log(item);
+      confirm(`${item.name} 장바구니에 담으시겠습니까?`) && addToCart(item);
+    });
 
     sectionItems.appendChild(sectionItem);
   });
