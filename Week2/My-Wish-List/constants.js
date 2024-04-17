@@ -24,7 +24,7 @@ export const shoppingList = [
     id: 4,
     img: "./assets/png/img_iMac.png",
     name: "iMac",
-    price: 22900000,
+    price: 2290000,
     category: "digital",
   },
   {

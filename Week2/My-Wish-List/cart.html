@@ -3,15 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="cart.style.css" />
     <link rel="stylesheet" href="reset.css" />
     <title>장바구니 페이지</title>
   </head>
   <body>
     <header class="cart_header">
-      <h1 class="header_title">장바구니 페이지</h1>
+      <h1 class="cart_header_title">장바구니 페이지</h1>
     </header>
-    <main class="body_wrapper"></main>
+    <main class="cart_body_wrapper">
+      <table class="cart_table">
+        <thead class="cart_table_header">
+          <th class="cart_table_th">
+            <input type="checkbox" class="checkbox_all" />
+          </th>
+          <th class="cart_table_th" colspan="2">상품 정보</th>
+          <th class="cart_table_th">상품 금액</th>
+          <th class="cart_table_th">카테고리</th>
+          <th class="cart_table_th">비고</th>
+        </thead>
+        <tbody class="cart_table_body"></tbody>
+      </table>
+    </main>
   </body>
+  <script src="cart.js" type="module"></script>
 </html>
