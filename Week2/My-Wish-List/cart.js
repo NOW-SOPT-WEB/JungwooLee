@@ -1,4 +1,8 @@
-const buyList = [];
+let buyList = [];
+
+const cartList = JSON.parse(sessionStorage.getItem("cartList"))
+  ? JSON.parse(sessionStorage.getItem("cartList"))
+  : [];
 
 const renderCartItems = (cartItems) => {
   const tbody = document.querySelector(".cart_table_body");
@@ -13,6 +17,15 @@ const renderCartItems = (cartItems) => {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.classList.add("checkbox_item");
+    checkbox.addEventListener("change", function () {
+      if (this.checked) {
+        buyList.push(item);
+      } else {
+        buyList = buyList.filter((buyItem) => buyItem.id !== item.id);
+      }
+      console.log(buyList);
+    });
+
     checkboxTd.appendChild(checkbox);
     tr.appendChild(checkboxTd);
 
@@ -55,10 +68,6 @@ const renderCartItems = (cartItems) => {
     tbody.appendChild(tr);
   });
 };
-
-const cartList = JSON.parse(sessionStorage.getItem("cartList"))
-  ? JSON.parse(sessionStorage.getItem("cartList"))
-  : [];
 
 console.log(cartList);
 
