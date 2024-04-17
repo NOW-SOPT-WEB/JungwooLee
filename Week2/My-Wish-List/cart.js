@@ -14,6 +14,7 @@ const renderCartItems = (cartItems) => {
 
     const checkboxTd = document.createElement("td");
     checkboxTd.classList.add("cart_table_td");
+
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.classList.add("checkbox_item");
@@ -68,6 +69,25 @@ const renderCartItems = (cartItems) => {
     tbody.appendChild(tr);
   });
 };
+
+const allCheckbox = document.querySelector(".checkbox_all");
+
+allCheckbox.addEventListener("change", function () {
+  const checkboxes = document.querySelectorAll(".checkbox_item");
+  buyList = [];
+  if (this.checked) {
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = true;
+    });
+
+    cartList.map((cartItem) => buyList.push(cartItem));
+  } else {
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+  }
+  console.log(buyList);
+});
 
 console.log(cartList);
 
