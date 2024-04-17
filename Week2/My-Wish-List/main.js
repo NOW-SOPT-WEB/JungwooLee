@@ -1,6 +1,10 @@
 import { shoppingList } from "./constants.js";
 
-const cartList = [];
+const cartList = sessionStorage.getItem("cartList")
+  ? JSON.parse(sessionStorage.getItem("cartList"))
+  : [];
+
+console.log(cartList);
 
 const addToCart = (item) => {
   const idx = cartList.findIndex((cartItem) => cartItem.id === item.id);
