@@ -1,6 +1,6 @@
 let buyList = [];
 
-const cartList = JSON.parse(sessionStorage.getItem("cartList"))
+let cartList = JSON.parse(sessionStorage.getItem("cartList"))
   ? JSON.parse(sessionStorage.getItem("cartList"))
   : [];
 
@@ -18,7 +18,7 @@ const renderCartItems = (cartItems) => {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.classList.add("checkbox_item");
-    checkbox.addEventListener("change", function () {
+    checkbox.addEventListener("change", () => {
       if (this.checked) {
         buyList.push(item);
       } else {
@@ -59,10 +59,17 @@ const renderCartItems = (cartItems) => {
 
     const remarksTd = document.createElement("td");
     remarksTd.classList.add("cart_table_td");
+
     const removeButton = document.createElement("button");
     removeButton.classList.add("remove_button");
     removeButton.type = "button";
     removeButton.textContent = "삭제";
+    removeButton.addEventListener("click", () => {
+      cartList = cartList.filter((cartItem) => cartItem.id !== item.id);
+      sessionStorage.setItem("cartList", JSON.stringify(cartList));
+      renderCartItems(cartList);
+    });
+
     remarksTd.appendChild(removeButton);
     tr.appendChild(remarksTd);
 
