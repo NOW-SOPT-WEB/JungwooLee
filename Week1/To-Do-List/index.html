@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>정우의 투두리스트</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header_text">정우의 To-Do List</h1>
+    </header>
+
+    <main class="main">
+      <section class="input_section">
+        <input
+          type="text"
+          name="todo_input"
+          class="todo_input"
+          placeholder="할 일을 입력해주세요 :)"
+        />
+        <button type="button" class="add_button">
+          <img
+            src="./asset/svg/ic_plus.svg"
+            alt="추가 버튼 아이콘"
+            class="add_button_icon"
+          />
+        </button>
+      </section>
+      <section class="todo_list_section">
+        <section class="sub_section">
+          <h2 class="todo_list_title">Not Started</h2>
+          <ul class="todo_list">
+            <li class="todo_list_item">
+              <p class="todo_text">
+                JS 심화 스터디 킥오프으으으으으으으으으으으
+              </p>
+              <button type="button" class="x_button">
+                <img
+                  src="./asset/svg/ic_x_button.svg"
+                  alt="X 버튼 아이콘"
+                  class="x_button_icon"
+                />
+              </button>
+            </li>
+            <li class="todo_list_item">
+              <p class="todo_text">금잔디 코드리뷰</p>
+              <button type="button" class="x_button">
+                <img
+                  src="./asset/svg/ic_x_button.svg"
+                  alt="X 버튼 아이콘"
+                  class="x_button_icon"
+                />
+              </button>
+            </li>
+            <li class="todo_list_item">
+              <p class="todo_text">Lecue 스프린트</p>
+              <button type="button" class="x_button">
+                <img
+                  src="./asset/svg/ic_x_button.svg"
+                  alt="X 버튼 아이콘"
+                  class="x_button_icon"
+                />
+              </button>
+            </li>
+            <li class="todo_list_item">
+              <p class="todo_text">벚꽃보러 가기</p>
+              <button type="button" class="x_button">
+                <img
+                  src="./asset/svg/ic_x_button.svg"
+                  alt="X 버튼 아이콘"
+                  class="x_button_icon"
+                />
+              </button>
+            </li>
+          </ul>
+        </section>
+        <section class="sub_section">
+          <h2 class="todo_list_title">Done</h2>
+          <ul class="todo_list">
+            <li class="todo_list_item">
+              <p class="todo_text">솝트 과제</p>
+              <button type="button" class="x_button">
+                <img
+                  src="./asset/svg/ic_x_button.svg"
+                  alt="X 버튼 아이콘"
+                  class="x_button_icon"
+                />
+              </button>
+            </li>
+            <li class="todo_list_item">
+              <p class="todo_text">코테 문제풀기</p>
+              <button type="button" class="x_button">
+                <img
+                  src="./asset/svg/ic_x_button.svg"
+                  alt="X 버튼 아이콘"
+                  class="x_button_icon"
+                />
+              </button>
+            </li>
+          </ul>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
