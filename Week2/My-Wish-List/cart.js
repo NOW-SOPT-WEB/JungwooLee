@@ -120,7 +120,9 @@ cancelButton.addEventListener("click", () => {
 });
 
 buyModalShowButton.addEventListener("click", () => {
-  openBuyModal();
+  buyList.length === 0
+    ? alert("구매를 원하는 제품을 선택해주세요!!")
+    : openBuyModal();
 });
 
 const buyItemsList = document.querySelector(".buy_items_list");
