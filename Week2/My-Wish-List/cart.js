@@ -102,25 +102,25 @@ const modalXButton = document.querySelector(".modal_x_button");
 const cancelButton = document.querySelector(".cancel_button");
 const buyModalShowButton = document.querySelector(".buy_modal_show_button");
 
-const closeModal = () => {
+const closeBuyModal = () => {
   buyModal.style.display = "none";
 };
 
-const openModal = () => {
+const openBuyModal = () => {
   renderBuyItems(buyList);
   buyModal.style.display = "block";
 };
 
 modalXButton.addEventListener("click", () => {
-  closeModal();
+  closeBuyModal();
 });
 
 cancelButton.addEventListener("click", () => {
-  closeModal();
+  closeBuyModal();
 });
 
 buyModalShowButton.addEventListener("click", () => {
-  openModal();
+  openBuyModal();
 });
 
 const buyItemsList = document.querySelector(".buy_items_list");
@@ -172,21 +172,37 @@ homeButtons.forEach((homeButton) => {
 
 const rightMenuModal = document.querySelector(".right_menu_modal");
 
-const showModal = () => {
+const openModal = () => {
   rightMenuModal.classList.remove("modal_hide");
   rightMenuModal.classList.add("modal_show");
 };
 
-const hideModal = () => {
+const closeModal = () => {
   rightMenuModal.classList.remove("modal_show");
   rightMenuModal.classList.add("modal_hide");
 };
 
 const hamburgerButton = document.querySelector(".hamburger_button");
-hamburgerButton.addEventListener("click", showModal);
+hamburgerButton.addEventListener("click", openModal);
 
 const closeModalButton = document.querySelector(".close_modal_button");
-closeModalButton.addEventListener("click", hideModal);
+closeModalButton.addEventListener("click", closeModal);
+
+const buyButton = document.querySelector(".buy_button");
+
+buyButton.addEventListener("click", () => {
+  buyList.forEach((buyItem) => {
+    cartList = cartList.filter((cartItem) => cartItem.id !== buyItem.id);
+  });
+
+  sessionStorage.setItem("cartList", JSON.stringify(cartList));
+
+  closeBuyModal();
+
+  renderCartItems(cartList);
+
+  // buyList = [];
+});
 
 console.log(cartList);
 
