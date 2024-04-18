@@ -18,7 +18,7 @@ const renderCartItems = (cartItems) => {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.classList.add("checkbox_item");
-    checkbox.addEventListener("change", () => {
+    checkbox.addEventListener("change", function () {
       if (this.checked) {
         buyList.push(item);
       } else {
@@ -95,6 +95,69 @@ allCheckbox.addEventListener("change", function () {
   }
   console.log(buyList);
 });
+
+const buyModal = document.querySelector(".buy_modal");
+
+const modalXButton = document.querySelector(".modal_x_button");
+const cancelButton = document.querySelector(".cancel_button");
+const buyModalShowButton = document.querySelector(".buy_modal_show_button");
+
+const closeModal = () => {
+  buyModal.style.display = "none";
+};
+
+const openModal = () => {
+  renderBuyItems(buyList);
+  buyModal.style.display = "block";
+};
+
+modalXButton.addEventListener("click", () => {
+  closeModal();
+});
+
+cancelButton.addEventListener("click", () => {
+  closeModal();
+});
+
+buyModalShowButton.addEventListener("click", () => {
+  openModal();
+});
+
+const buyItemsList = document.querySelector(".buy_items_list");
+const totalPriceSpan = document.querySelector(".total_price");
+
+const renderBuyItems = (items) => {
+  buyItemsList.innerHTML = "";
+
+  let totalPrice = 0;
+
+  items.forEach((item) => {
+    const listItem = document.createElement("li");
+    listItem.classList.add("buy_item");
+
+    const img = document.createElement("img");
+    img.src = item.img;
+    img.alt = item.name + " 사진";
+    img.classList.add("buy_item_img");
+
+    const name = document.createElement("h3");
+    name.classList.add("buy_item_name");
+    name.textContent = item.name;
+
+    const price = document.createElement("p");
+    price.classList.add("buy_item_price");
+    price.textContent = item.price.toLocaleString() + "원";
+    totalPrice += item.price;
+
+    listItem.appendChild(img);
+    listItem.appendChild(name);
+    listItem.appendChild(price);
+
+    buyItemsList.appendChild(listItem);
+  });
+
+  totalPriceSpan.textContent = totalPrice.toLocaleString();
+};
 
 console.log(cartList);
 

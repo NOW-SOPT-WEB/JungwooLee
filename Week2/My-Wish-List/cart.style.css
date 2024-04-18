@@ -164,3 +164,132 @@ body {
   border-radius: 1rem;
   background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
 }
+
+.buy_modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  display: none;
+
+  width: 60rem;
+  height: 65rem;
+
+  border-radius: 1.5rem;
+
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+}
+
+.buy_modal_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  padding: 4rem;
+}
+
+.buy_modal_title {
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+.modal_x_button {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+
+  width: 2rem;
+  height: 2rem;
+}
+
+.buy_items_list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1.5rem;
+  row-gap: 2rem;
+
+  width: 100%;
+  height: 40rem;
+  margin-top: 3rem;
+
+  overflow-y: scroll;
+}
+
+.buy_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+}
+
+.buy_item_img {
+  width: 100%;
+  height: 16.3rem;
+
+  object-fit: cover;
+}
+
+.buy_item_name {
+  margin-top: 2rem;
+
+  font-size: 2.2rem;
+}
+.buy_item_price {
+  margin-top: 1rem;
+
+  font-size: 2rem;
+}
+
+.bottom_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.total_price_text,
+.total_price {
+  font-size: 2.7rem;
+}
+
+.modal_button_section {
+  display: flex;
+  column-gap: 2rem;
+}
+
+.modal_button {
+  width: 8rem;
+  height: 5rem;
+
+  color: white;
+  font-size: 2rem;
+
+  border-radius: 1rem;
+
+  transition: 0.3s ease;
+}
+
+.buy_button {
+  background-color: green;
+}
+
+.buy_button:hover {
+  background-color: #006400;
+}
+
+.cancel_button {
+  background-color: red;
+}
+
+.cancel_button:hover {
+  background-color: #b81414;
+}
