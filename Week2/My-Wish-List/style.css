@@ -58,9 +58,14 @@ body {
   letter-spacing: 0.2rem;
 }
 
-.img_header_logo {
+.home_button {
   width: 5rem;
   height: 5rem;
+}
+
+.img_header_logo {
+  width: 100%;
+  height: 100%;
 }
 
 .hamburger_button {

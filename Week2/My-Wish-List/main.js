@@ -97,8 +97,8 @@ filterButtons.forEach((button) => {
   });
 });
 
-const headerLogoButton = document.querySelector(".img_header_logo");
-headerLogoButton.addEventListener(
+const homeButton = document.querySelector(".home_button");
+homeButton.addEventListener(
   "click",
   () => (window.location.href = "./index.html")
 );
