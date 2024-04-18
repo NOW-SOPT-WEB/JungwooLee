@@ -39,16 +39,18 @@ body {
 
 .cart_body_wrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
   width: 100%;
   margin-top: 8rem;
 }
 
-.cart_table {
+.table_wrapper {
+  max-height: 50rem;
   margin-top: 7rem;
 
-  border: 1px solid black;
+  overflow-y: scroll;
 }
 
 .cart_table_header {
