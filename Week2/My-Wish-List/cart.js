@@ -159,11 +159,16 @@ const renderBuyItems = (items) => {
   totalPriceSpan.textContent = totalPrice.toLocaleString();
 };
 
-const homeButton = document.querySelector(".home_button");
-homeButton.addEventListener(
-  "click",
-  () => (window.location.href = "./index.html")
-);
+const homeButtons = document.querySelectorAll(".home_button");
+
+console.log(homeButtons);
+
+homeButtons.forEach((homeButton) => {
+  homeButton.addEventListener(
+    "click",
+    () => (window.location.href = "./index.html")
+  );
+});
 
 const rightMenuModal = document.querySelector(".right_menu_modal");
 
