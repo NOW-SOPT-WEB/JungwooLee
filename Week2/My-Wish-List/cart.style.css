@@ -147,3 +147,20 @@ body {
 .remove_button:hover {
   background-color: #b81414;
 }
+
+.button_wrapper {
+  display: flex;
+  column-gap: 3rem;
+
+  margin-top: 5rem;
+}
+
+.cart_button {
+  width: 12rem;
+  height: 5rem;
+
+  font-size: 2rem;
+
+  border-radius: 1rem;
+  background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
+}
