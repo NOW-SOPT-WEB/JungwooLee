@@ -105,21 +105,21 @@ homeButton.addEventListener(
 
 const rightMenuModal = document.querySelector(".right_menu_modal");
 
-const showModal = () => {
+const openModal = () => {
   rightMenuModal.classList.remove("modal_hide");
   rightMenuModal.classList.add("modal_show");
 };
 
-const hideModal = () => {
+const closeModal = () => {
   rightMenuModal.classList.remove("modal_show");
   rightMenuModal.classList.add("modal_hide");
 };
 
 const hamburgerButton = document.querySelector(".hamburger_button");
-hamburgerButton.addEventListener("click", showModal);
+hamburgerButton.addEventListener("click", openModal);
 
 const closeModalButton = document.querySelector(".close_modal_button");
-closeModalButton.addEventListener("click", hideModal);
+closeModalButton.addEventListener("click", closeModal);
 
 //초기 렌더링
 
