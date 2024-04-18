@@ -201,7 +201,7 @@ buyButton.addEventListener("click", () => {
 
   renderCartItems(cartList);
 
-  // buyList = [];
+  buyList = [];
 });
 
 console.log(cartList);
