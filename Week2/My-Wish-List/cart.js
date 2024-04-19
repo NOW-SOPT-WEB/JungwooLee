@@ -24,7 +24,6 @@ const renderCartItems = (cartItems) => {
       } else {
         buyList = buyList.filter((buyItem) => buyItem.id !== item.id);
       }
-      console.log(buyList);
     });
 
     checkboxTd.appendChild(checkbox);
@@ -93,7 +92,6 @@ allCheckbox.addEventListener("change", function () {
       checkbox.checked = false;
     });
   }
-  console.log(buyList);
 });
 
 const buyModal = document.querySelector(".buy_modal");
@@ -163,8 +161,6 @@ const renderBuyItems = (items) => {
 
 const homeButtons = document.querySelectorAll(".home_button");
 
-console.log(homeButtons);
-
 homeButtons.forEach((homeButton) => {
   homeButton.addEventListener(
     "click",
@@ -205,7 +201,5 @@ buyButton.addEventListener("click", () => {
 
   buyList = [];
 });
-
-console.log(cartList);
 
 renderCartItems(cartList);

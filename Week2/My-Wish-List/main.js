@@ -4,8 +4,6 @@ const cartList = sessionStorage.getItem("cartList")
   ? JSON.parse(sessionStorage.getItem("cartList"))
   : [];
 
-console.log(cartList);
-
 const addToCart = (item) => {
   const idx = cartList.findIndex((cartItem) => cartItem.id === item.id);
 
@@ -65,7 +63,6 @@ const renderShoppingList = (shoppingList) => {
     sectionItem.appendChild(productPrice);
 
     sectionItem.addEventListener("click", () => {
-      console.log(item);
       confirm(`${item.name} 장바구니에 담으시겠습니까?`) && addToCart(item);
     });
 
@@ -80,15 +77,12 @@ const filterShoppingList = (category) => {
     category === "entire"
       ? shoppingList
       : shoppingList.filter((item) => item.category === category);
-  console.log(filteredList);
   renderShoppingList(filteredList);
 
   const sectionHeaderTitle = document.querySelector(".section_header_title");
   sectionHeaderTitle.textContent =
     document.getElementById(category).textContent;
 };
-
-console.log(filterButtons);
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", function () {
