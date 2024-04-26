@@ -1,18 +1,14 @@
-import { Router } from "react-router-dom";
-import styled from "styled-components";
+import React from "react";
 import GlobalStyle from "../styles/GlobalStyle";
+import Router from "./Router";
 
 function App() {
   return (
-    <Wrapper>
+    <React.Fragment>
       <GlobalStyle />
       <Router />
-    </Wrapper>
+    </React.Fragment>
   );
 }
 
 export default App;
-
-const Wrapper = styled.div`
-  height: 100vh;
-`;
