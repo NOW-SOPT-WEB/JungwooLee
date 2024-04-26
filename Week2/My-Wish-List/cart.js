@@ -189,6 +189,8 @@ closeModalButton.addEventListener("click", closeModal);
 const buyButton = document.querySelector(".buy_button");
 
 buyButton.addEventListener("click", () => {
+  alert("구매 완료");
+
   buyList.forEach((buyItem) => {
     cartList = cartList.filter((cartItem) => cartItem.id !== buyItem.id);
   });
