@@ -8,38 +8,47 @@ const dummyCardList = [
   {
     id: 0,
     imgSrc: "https://picsum.photos/200/300",
+    isClear: false,
   },
   {
     id: 1,
     imgSrc: "https://picsum.photos/200/300",
+    isClear: false,
   },
   {
     id: 2,
     imgSrc: "https://picsum.photos/200/300",
+    isClear: false,
   },
   {
     id: 3,
     imgSrc: "https://picsum.photos/200/300",
+    isClear: false,
   },
   {
     id: 4,
     imgSrc: "https://picsum.photos/200/300",
+    isClear: false,
   },
   {
     id: 5,
     imgSrc: "https://picsum.photos/200/300",
+    isClear: false,
   },
   {
     id: 6,
     imgSrc: "https://picsum.photos/200/300",
+    isClear: false,
   },
   {
     id: 7,
     imgSrc: "https://picsum.photos/200/300",
+    isClear: false,
   },
   {
     id: 8,
     imgSrc: "https://picsum.photos/200/300",
+    isClear: false,
   },
 ];
 
@@ -60,6 +69,12 @@ function Home() {
 
   console.log(cardList);
 
+  const handleClickCard = (id) => {
+    first ? setSecond(id) : setFirst(id);
+  };
+
+  console.log(first, second);
+
   return (
     <HomePageWrapper>
       <HomeHeader currentPoint={currentPoint} clearPoint={clearPoint} />
@@ -68,8 +83,10 @@ function Home() {
           {cardList.map((card, idx) => (
             <Card
               key={idx}
+              idx={idx}
               {...card}
-              // isFront={first.id === card.id || second.id === card.id}
+              isFront={first === idx || second === idx || card.isClear}
+              handleClickCard={handleClickCard}
             />
           ))}
         </CardGrid>

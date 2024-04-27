@@ -1,18 +1,15 @@
-import { useState } from "react";
 import styled from "styled-components";
 
-function Card({ id, imgSrc }) {
-  const [isFront, setIsFront] = useState(false);
-
-  const handleClickCard = () => {
-    setIsFront(!isFront);
+function Card({ handleClickCard, idx, isFront, imgSrc }) {
+  const handleClickTest = () => {
+    handleClickCard(idx);
   };
 
-  console.log(isFront);
+  console.log(idx);
 
   return (
-    <CardWrapper isFront={isFront} onClick={handleClickCard}>
-      <FrontImg />
+    <CardWrapper $isFront={isFront} onClick={handleClickTest}>
+      <FrontImg src={imgSrc} />
       <BackImg />
     </CardWrapper>
   );
@@ -33,8 +30,8 @@ const CardWrapper = styled.div`
     transform: rotateY(180deg);
   } */
 
-  transform: ${({ isFront }) =>
-    isFront ? "rotateY(180deg)" : "rotateY(0deg)"};
+  transform: ${({ $isFront }) =>
+    $isFront ? "rotateY(180deg)" : "rotateY(0deg)"};
 `;
 
 const FrontImg = styled.img`
