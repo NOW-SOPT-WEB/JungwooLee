@@ -3,7 +3,7 @@ import styled from "styled-components";
 function HomeHeader({ currentPoint, clearPoint }) {
   return (
     <HomeHeaderWrapper>
-      <HomeHeaderTitle>세숑 맞추기</HomeHeaderTitle>
+      <HomeHeaderTitle>카드 뒤집기</HomeHeaderTitle>
       <PointCounter>
         ( {currentPoint} / {clearPoint} )
       </PointCounter>
