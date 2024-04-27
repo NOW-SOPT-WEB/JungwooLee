@@ -60,6 +60,10 @@ function Home() {
   console.log(first, second);
 
   useEffect(() => {
+    currentPoint === clearPoint && {}; // 모달 팝업 로직 구현 필요!!!
+  }, [currentPoint, clearPoint]);
+
+  useEffect(() => {
     if (first[1] && second[1]) {
       if (first[1] === second[1]) {
         setCardList(
@@ -68,14 +72,13 @@ function Home() {
           )
         );
         setCurrentPoint(currentPoint + 1);
-        if (currentPoint + 1 === clearPoint) {
-          alert("끝!!!");
-        }
       }
-      setFirst([]);
-      setSecond([]);
+      setTimeout(() => {
+        setFirst([]);
+        setSecond([]);
+      }, 500);
     }
-  }, [first, second, cardList]);
+  }, [first, second]);
 
   return (
     <HomePageWrapper>
