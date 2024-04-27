@@ -7,47 +7,32 @@ import Card from "../components/Home/Card";
 const dummyCardList = [
   {
     id: 0,
-    imgSrc: "https://picsum.photos/200/300",
+    imgSrc: "../assets/img/sechon_1.png",
     isClear: false,
   },
   {
     id: 1,
-    imgSrc: "https://picsum.photos/200/300",
+    imgSrc: "../assets/img/sechon_2.png",
     isClear: false,
   },
   {
     id: 2,
-    imgSrc: "https://picsum.photos/200/300",
+    imgSrc: "../assets/img/sechon_3.png",
     isClear: false,
   },
   {
     id: 3,
-    imgSrc: "https://picsum.photos/200/300",
+    imgSrc: "../assets/img/sechon_4.png",
     isClear: false,
   },
   {
     id: 4,
-    imgSrc: "https://picsum.photos/200/300",
+    imgSrc: "../assets/img/sechon_5.png",
     isClear: false,
   },
   {
     id: 5,
-    imgSrc: "https://picsum.photos/200/300",
-    isClear: false,
-  },
-  {
-    id: 6,
-    imgSrc: "https://picsum.photos/200/300",
-    isClear: false,
-  },
-  {
-    id: 7,
-    imgSrc: "https://picsum.photos/200/300",
-    isClear: false,
-  },
-  {
-    id: 8,
-    imgSrc: "https://picsum.photos/200/300",
+    imgSrc: "../assets/img/sechon_6.png",
     isClear: false,
   },
 ];

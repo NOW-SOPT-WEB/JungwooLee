@@ -9,8 +9,8 @@ function Card({ handleClickCard, idx, isFront, imgSrc }) {
 
   return (
     <CardWrapper $isFront={isFront} onClick={handleClickTest}>
-      <FrontImg src={imgSrc} />
-      <BackImg />
+      <FrontImg />
+      <BackImg src={imgSrc} />
     </CardWrapper>
   );
 }
@@ -49,15 +49,12 @@ const FrontImg = styled.img`
 `;
 
 const BackImg = styled.img`
-  /* width: 100%;
-  height: 100%;
-
-  object-fit: cover; */
-
   position: absolute;
   width: 100%;
   height: 100%;
+
   backface-visibility: hidden;
+  object-fit: cover;
 
   background: royalblue;
   transform: rotateY(180deg);

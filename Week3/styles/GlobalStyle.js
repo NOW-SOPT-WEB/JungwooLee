@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
     @font-face {
     font-family: 'NPSfontBold';
-    src: url('../src/assets/fonts/NPSfontBold/NPSfontBold.woff2') format('woff2');
+    src: url('/assets/fonts/NPSfontBold/NPSfontBold.woff2') format('woff2');
     }
 
     * {
