@@ -6,32 +6,32 @@ import Card from "../components/Home/Card";
 
 const dummyCardList = [
   {
-    id: 0,
+    id: 1,
     imgSrc: "../assets/img/sechon_1.png",
     isClear: false,
   },
   {
-    id: 1,
+    id: 2,
     imgSrc: "../assets/img/sechon_2.png",
     isClear: false,
   },
   {
-    id: 2,
+    id: 3,
     imgSrc: "../assets/img/sechon_3.png",
     isClear: false,
   },
   {
-    id: 3,
+    id: 4,
     imgSrc: "../assets/img/sechon_4.png",
     isClear: false,
   },
   {
-    id: 4,
+    id: 5,
     imgSrc: "../assets/img/sechon_5.png",
     isClear: false,
   },
   {
-    id: 5,
+    id: 6,
     imgSrc: "../assets/img/sechon_6.png",
     isClear: false,
   },
@@ -41,8 +41,8 @@ function Home() {
   const [cardList, setCardList] = useState([]);
   const [currentPoint, setCurrentPoint] = useState(0);
   const [clearPoint, setClearPoint] = useState(5);
-  const [first, setFirst] = useState(null);
-  const [second, setSecond] = useState(null);
+  const [first, setFirst] = useState([]);
+  const [second, setSecond] = useState([]);
 
   useEffect(() => {
     const shuffledDummyCards = dummyCardList.sort(() => Math.random() - 0.5); // 먼저 전체 셔플
@@ -52,13 +52,26 @@ function Home() {
     setCardList(shuffledCards);
   }, [clearPoint]);
 
-  console.log(cardList);
-
-  const handleClickCard = (id) => {
-    first ? setSecond(id) : setFirst(id);
+  const handleClickCard = (idx, id) => {
+    console.log(first[0]);
+    first[1] ? setSecond([idx, id]) : setFirst([idx, id]);
   };
 
   console.log(first, second);
+
+  useEffect(() => {
+    if (first[1] && second[1]) {
+      if (first[1] === second[1]) {
+        setCardList(
+          cardList.map((card) =>
+            card.id === first[1] ? { ...card, isClear: true } : card
+          )
+        );
+      }
+      setFirst([]);
+      setSecond([]);
+    }
+  }, [first, second, cardList]);
 
   return (
     <HomePageWrapper>
@@ -67,10 +80,10 @@ function Home() {
         <CardGrid $clearPoint={clearPoint}>
           {cardList.map((card, idx) => (
             <Card
-              key={idx}
+              key={`card-${idx}`}
               idx={idx}
               {...card}
-              isFront={first === idx || second === idx || card.isClear}
+              isFront={first[0] === idx || second[0] === idx || card.isClear}
               handleClickCard={handleClickCard}
             />
           ))}

@@ -1,16 +1,14 @@
 import styled from "styled-components";
 
-function Card({ handleClickCard, idx, isFront, imgSrc }) {
+function Card({ idx, handleClickCard, id, isFront, imgSrc }) {
   const handleClickTest = () => {
-    handleClickCard(idx);
+    handleClickCard(idx, id);
   };
-
-  console.log(idx);
 
   return (
     <CardWrapper $isFront={isFront} onClick={handleClickTest}>
-      <FrontImg />
-      <BackImg src={imgSrc} />
+      <BackImg />
+      <FrontImg src={imgSrc} />
     </CardWrapper>
   );
 }
@@ -26,20 +24,11 @@ const CardWrapper = styled.div`
   transition: 0.4s;
   transform-style: preserve-3d;
 
-  /* &:hover {
-    transform: rotateY(180deg);
-  } */
-
   transform: ${({ $isFront }) =>
     $isFront ? "rotateY(180deg)" : "rotateY(0deg)"};
 `;
 
-const FrontImg = styled.img`
-  /* width: 100%;
-  height: 100%;
-
-  object-fit: cover; */
-
+const BackImg = styled.img`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -48,7 +37,7 @@ const FrontImg = styled.img`
   background: red;
 `;
 
-const BackImg = styled.img`
+const FrontImg = styled.img`
   position: absolute;
   width: 100%;
   height: 100%;
