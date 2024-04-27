@@ -67,6 +67,10 @@ function Home() {
             card.id === first[1] ? { ...card, isClear: true } : card
           )
         );
+        setCurrentPoint(currentPoint + 1);
+        if (currentPoint + 1 === clearPoint) {
+          alert("끝!!!");
+        }
       }
       setFirst([]);
       setSecond([]);
