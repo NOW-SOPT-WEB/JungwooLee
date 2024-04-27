@@ -47,6 +47,8 @@ function Home() {
   const [cardList, setCardList] = useState([]);
   const [currentPoint, setCurrentPoint] = useState(0);
   const [clearPoint, setClearPoint] = useState(5);
+  const [first, setFirst] = useState(null);
+  const [second, setSecond] = useState(null);
 
   useEffect(() => {
     const shuffledDummyCards = dummyCardList.sort(() => Math.random() - 0.5); // 먼저 전체 셔플
@@ -64,7 +66,11 @@ function Home() {
       <HomeBodyWrapper>
         <CardGrid $clearPoint={clearPoint}>
           {cardList.map((card, idx) => (
-            <Card key={idx} {...card} />
+            <Card
+              key={idx}
+              {...card}
+              // isFront={first.id === card.id || second.id === card.id}
+            />
           ))}
         </CardGrid>
       </HomeBodyWrapper>
