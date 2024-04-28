@@ -43,6 +43,7 @@ function Home() {
   const [clearPoint, setClearPoint] = useState(5);
   const [first, setFirst] = useState([]);
   const [second, setSecond] = useState([]);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
     const shuffledDummyCards = dummyCardList.sort(() => Math.random() - 0.5);
@@ -53,8 +54,9 @@ function Home() {
   }, [clearPoint]);
 
   const clickCard = (idx, id) => {
-    console.log(first[0]);
-    first[1] ? setSecond([idx, id]) : setFirst([idx, id]);
+    if (!isDisabled) {
+      first[1] ? setSecond([idx, id]) : setFirst([idx, id]);
+    }
   };
 
   console.log(first, second);
@@ -73,9 +75,11 @@ function Home() {
         );
         setCurrentPoint(currentPoint + 1);
       }
+      setIsDisabled(true);
       setTimeout(() => {
         setFirst([]);
         setSecond([]);
+        setIsDisabled(false);
       }, 500);
     }
   }, [first, second]);
