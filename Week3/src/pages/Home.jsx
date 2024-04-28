@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import HomeHeader from "../components/Home/HomeHeader";
 
-import { useState } from "react";
-import Card from "../components/Home/Card";
+import { useEffect, useState } from "react";
+import CardGrid from "../components/Home/CardGrid";
 
 const dummyCardList = [
   {
@@ -43,13 +43,12 @@ function Home() {
   const [clearPoint, setClearPoint] = useState(5);
   const [first, setFirst] = useState([]);
   const [second, setSecond] = useState([]);
-  const
 
   useEffect(() => {
-    const shuffledDummyCards = dummyCardList.sort(() => Math.random() - 0.5); // 먼저 전체 셔플
-    const selectedCards = shuffledDummyCards.slice(0, clearPoint); // clearPoint 만큼 선택
-    const duplicatedCards = [...selectedCards, ...selectedCards]; // 두 배로 복제
-    const shuffledCards = duplicatedCards.sort(() => Math.random() - 0.5); // 무작위로 다시 섞기
+    const shuffledDummyCards = dummyCardList.sort(() => Math.random() - 0.5);
+    const selectedCards = shuffledDummyCards.slice(0, clearPoint);
+    const duplicatedCards = [...selectedCards, ...selectedCards];
+    const shuffledCards = duplicatedCards.sort(() => Math.random() - 0.5);
     setCardList(shuffledCards);
   }, [clearPoint]);
 
@@ -85,17 +84,13 @@ function Home() {
     <HomePageWrapper>
       <HomeHeader currentPoint={currentPoint} clearPoint={clearPoint} />
       <HomeBodyWrapper>
-        <CardGrid $clearPoint={clearPoint}>
-          {cardList.map((card, idx) => (
-            <Card
-              key={`card-${idx}`}
-              idx={idx}
-              {...card}
-              isFront={first[0] === idx || second[0] === idx || card.isClear}
-              clickCard={clickCard}
-            />
-          ))}
-        </CardGrid>
+        <CardGrid
+          cardList={cardList}
+          first={first}
+          second={second}
+          clearPoint={clearPoint}
+          clickCard={clickCard}
+        />
       </HomeBodyWrapper>
     </HomePageWrapper>
   );
@@ -114,15 +109,4 @@ const HomeBodyWrapper = styled.section`
 
   height: calc(100% - 20rem);
   padding: 0 20rem;
-`;
-
-const CardGrid = styled.article`
-  width: 100%;
-  height: 50rem;
-
-  display: grid;
-  gap: 2rem 1rem;
-  /* grid-template-columns: ${({ clearPoint }) =>
-    `repeat(${clearPoint}, 1fr)`}; */
-  grid-template-columns: repeat(5, 1fr);
 `;
