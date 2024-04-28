@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-function Card({ idx, handleClickCard, id, isFront, imgSrc, isClear }) {
-  const handleClickTest = () => {
-    !isClear && handleClickCard(idx, id);
+function Card({ idx, clickCard, id, isFront, imgSrc, isClear }) {
+  const handleClickCard = () => {
+    !isClear && clickCard(idx, id);
   };
 
   return (
-    <CardWrapper $isFront={isFront} onClick={handleClickTest}>
+    <CardWrapper $isFront={isFront} onClick={handleClickCard}>
       <BackImg />
       <FrontImg src={imgSrc} />
     </CardWrapper>

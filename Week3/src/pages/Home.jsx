@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import HomeHeader from "../components/Home/HomeHeader";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Card from "../components/Home/Card";
 
 const dummyCardList = [
@@ -43,6 +43,7 @@ function Home() {
   const [clearPoint, setClearPoint] = useState(5);
   const [first, setFirst] = useState([]);
   const [second, setSecond] = useState([]);
+  const
 
   useEffect(() => {
     const shuffledDummyCards = dummyCardList.sort(() => Math.random() - 0.5); // 먼저 전체 셔플
@@ -52,7 +53,7 @@ function Home() {
     setCardList(shuffledCards);
   }, [clearPoint]);
 
-  const handleClickCard = (idx, id) => {
+  const clickCard = (idx, id) => {
     console.log(first[0]);
     first[1] ? setSecond([idx, id]) : setFirst([idx, id]);
   };
@@ -91,7 +92,7 @@ function Home() {
               idx={idx}
               {...card}
               isFront={first[0] === idx || second[0] === idx || card.isClear}
-              handleClickCard={handleClickCard}
+              clickCard={clickCard}
             />
           ))}
         </CardGrid>
