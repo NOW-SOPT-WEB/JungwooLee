@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-function Card({ idx, clickCard, id, isFront, imgSrc, isClear }) {
+function Card({ idx, clickCard, id, isFront, imgSrc }) {
   const handleClickCard = () => {
-    !isClear && clickCard(idx, id);
+    !isFront && clickCard(idx, id);
   };
 
   return (
