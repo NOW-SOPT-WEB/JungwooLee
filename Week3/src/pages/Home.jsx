@@ -87,12 +87,17 @@ function Home() {
         );
         setCurrentPoint(currentPoint + 1);
       }
+
       setIsDisabled(true);
+
       setTimeout(() => {
         setFirst([]);
         setSecond([]);
-        setIsDisabled(false);
       }, 500);
+
+      setTimeout(() => {
+        setIsDisabled(false);
+      }, 600);
     }
   }, [first, second]);
 
