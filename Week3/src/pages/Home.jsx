@@ -45,18 +45,28 @@ function Home() {
   const [second, setSecond] = useState([]);
   const [isDisabled, setIsDisabled] = useState(false);
 
-  useEffect(() => {
+  const shuffleCards = () => {
     const shuffledDummyCards = dummyCardList.sort(() => Math.random() - 0.5);
     const selectedCards = shuffledDummyCards.slice(0, clearPoint);
     const duplicatedCards = [...selectedCards, ...selectedCards];
     const shuffledCards = duplicatedCards.sort(() => Math.random() - 0.5);
     setCardList(shuffledCards);
+  };
+
+  useEffect(() => {
+    shuffleCards();
   }, [clearPoint]);
 
   const clickCard = (idx, id) => {
     if (!isDisabled) {
       first[1] ? setSecond([idx, id]) : setFirst([idx, id]);
     }
+  };
+
+  const resetStage = () => {
+    setCardList(cardList.map((card) => ({ ...card, isClear: false })));
+    setCurrentPoint(0);
+    shuffleCards();
   };
 
   console.log(first, second);
