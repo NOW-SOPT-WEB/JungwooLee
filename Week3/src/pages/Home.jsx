@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import HomeHeader from "../components/Home/HomeHeader";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import CardGrid from "../components/Home/CardGrid";
+import ClearModal from "../components/Home/ClearModal";
 
 const dummyCardList = [
   {
@@ -44,6 +45,7 @@ function Home() {
   const [first, setFirst] = useState([]);
   const [second, setSecond] = useState([]);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [modalOn, setModalOn] = useState(false);
 
   const shuffleCards = () => {
     const shuffledDummyCards = dummyCardList.sort(() => Math.random() - 0.5);
@@ -72,7 +74,7 @@ function Home() {
   console.log(first, second);
 
   useEffect(() => {
-    currentPoint === clearPoint && {}; // 모달 팝업 로직 구현 필요!!!
+    currentPoint === clearPoint && setModalOn(true); // 모달 팝업 로직 구현 필요!!!
   }, [currentPoint, clearPoint]);
 
   useEffect(() => {
@@ -95,18 +97,26 @@ function Home() {
   }, [first, second]);
 
   return (
-    <HomePageWrapper>
-      <HomeHeader currentPoint={currentPoint} clearPoint={clearPoint} />
-      <HomeBodyWrapper>
-        <CardGrid
-          cardList={cardList}
-          first={first}
-          second={second}
-          clearPoint={clearPoint}
-          clickCard={clickCard}
+    <React.Fragment>
+      {modalOn && (
+        <ClearModal
+          closeModal={() => setModalOn(false)}
+          resetStage={resetStage}
         />
-      </HomeBodyWrapper>
-    </HomePageWrapper>
+      )}
+      <HomePageWrapper>
+        <HomeHeader currentPoint={currentPoint} clearPoint={clearPoint} />
+        <HomeBodyWrapper>
+          <CardGrid
+            cardList={cardList}
+            first={first}
+            second={second}
+            clearPoint={clearPoint}
+            clickCard={clickCard}
+          />
+        </HomeBodyWrapper>
+      </HomePageWrapper>
+    </React.Fragment>
   );
 }
 
