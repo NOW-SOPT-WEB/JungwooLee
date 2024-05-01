@@ -20,8 +20,7 @@ const CardWrapper = styled.div`
 
   width: 100%;
   height: 25rem;
-
-  border: 0.1rem solid #000000;
+  border: ${({ theme }) => `0.1rem solid ${theme.colors.black}`};
   border-radius: 1rem;
 
   transition: 0.4s;

@@ -151,20 +151,20 @@ const LevelButton = styled.button`
   width: 10rem;
   height: 5rem;
 
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
 
   border-radius: 1rem;
 
   &:first-child {
-    background-color: ${({ $clearPoint }) =>
-      $clearPoint === 5 ? "#87ceeb" : "#db7093"};
+    background-color: ${({ $clearPoint, theme }) =>
+      $clearPoint === 5 ? theme.colors.skyBlue : theme.colors.pink};
   }
   &:nth-child(2) {
-    background-color: ${({ $clearPoint }) =>
-      $clearPoint === 7 ? "#87ceeb" : "#db7093"};
+    background-color: ${({ $clearPoint, theme }) =>
+      $clearPoint === 7 ? theme.colors.skyBlue : theme.colors.pink};
   }
   &:last-child {
-    background-color: ${({ $clearPoint }) =>
-      $clearPoint === 9 ? "#87ceeb" : "#db7093"};
+    background-color: ${({ $clearPoint, theme }) =>
+      $clearPoint === 9 ? theme.colors.skyBlue : theme.colors.pink};
   }
 `;

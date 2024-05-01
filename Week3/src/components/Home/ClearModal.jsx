@@ -35,7 +35,7 @@ const BlurryContainer = styled.div`
   width: 100%;
   height: 100vh;
 
-  background-color: #000000bf;
+  background-color: ${({ theme }) => theme.colors.bgColor};
 `;
 
 const ClearModalWrapper = styled.section`
@@ -48,9 +48,10 @@ const ClearModalWrapper = styled.section`
   width: 50rem;
   height: 30rem;
 
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
 
-  background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+  background-image: ${({ theme }) =>
+    `linear-gradient(to top, ${theme.colors.lightBlue} 0%, ${theme.colors.blue} 100%)`};
 `;
 
 const ModalText = styled.h1`
@@ -63,14 +64,14 @@ const CloseModalButton = styled.button`
   width: 10rem;
   height: 4rem;
 
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
 
   border-radius: 1rem;
-  background-color: red;
+  background-color: ${({ theme }) => theme.colors.red};
 
   transition: 0.3s ease;
 
   &:hover {
-    background-color: #b81414;
+    background-color: ${({ theme }) => theme.colors.darkRed};
   }
 `;

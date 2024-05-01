@@ -26,9 +26,9 @@ const HomeHeaderWrapper = styled.section`
   width: 100%;
   height: 20rem;
 
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 
-  background-color: #ffa07a;
+  background-color: ${({ theme }) => theme.colors.apricot};
 `;
 
 const ResetButton = styled.button`
@@ -42,12 +42,12 @@ const ResetButton = styled.button`
   font-size: 2rem;
 
   border-radius: 1rem;
-  background-color: #00fa9a;
+  background-color: ${({ theme }) => theme.colors.lightGreen};
 
   transition: 0.2s ease;
 
   &:hover {
-    background-color: #3cb371;
+    background-color: ${({ theme }) => theme.colors.green};
   }
 `;
 
