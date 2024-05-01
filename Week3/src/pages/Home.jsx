@@ -4,59 +4,12 @@ import HomeHeader from "../components/Home/HomeHeader";
 import React, { useEffect, useState } from "react";
 import CardGrid from "../components/Home/CardGrid";
 import ClearModal from "../components/Home/ClearModal";
-
-const dummyCardList = [
-  {
-    id: 1,
-    imgSrc: "../assets/img/sechon_1.png",
-    isClear: false,
-  },
-  {
-    id: 2,
-    imgSrc: "../assets/img/sechon_2.png",
-    isClear: false,
-  },
-  {
-    id: 3,
-    imgSrc: "../assets/img/sechon_3.png",
-    isClear: false,
-  },
-  {
-    id: 4,
-    imgSrc: "../assets/img/sechon_4.png",
-    isClear: false,
-  },
-  {
-    id: 5,
-    imgSrc: "../assets/img/sechon_5.png",
-    isClear: false,
-  },
-  {
-    id: 6,
-    imgSrc: "../assets/img/sechon_6.png",
-    isClear: false,
-  },
-  {
-    id: 7,
-    imgSrc: "../assets/img/sechon_6.png",
-    isClear: false,
-  },
-  {
-    id: 8,
-    imgSrc: "../assets/img/sechon_6.png",
-    isClear: false,
-  },
-  {
-    id: 9,
-    imgSrc: "../assets/img/sechon_6.png",
-    isClear: false,
-  },
-];
+import { cardDeck } from "../constants/cardDeck";
 
 function Home() {
   const [cardList, setCardList] = useState([]);
   const [currentPoint, setCurrentPoint] = useState(0);
-  const [clearPoint, setClearPoint] = useState(9);
+  const [clearPoint, setClearPoint] = useState(5);
   const [first, setFirst] = useState([]);
   const [second, setSecond] = useState([]);
   const [isDisabled, setIsDisabled] = useState(false);
@@ -78,8 +31,8 @@ function Home() {
   };
 
   const shuffleCards = () => {
-    const shuffledDummyCards = dummyCardList.sort(() => Math.random() - 0.5);
-    const selectedCards = shuffledDummyCards.slice(0, clearPoint);
+    const shuffledCardDeck = cardDeck.sort(() => Math.random() - 0.5);
+    const selectedCards = shuffledCardDeck.slice(0, clearPoint);
     const duplicatedCards = [...selectedCards, ...selectedCards];
     const shuffledCards = duplicatedCards.sort(() => Math.random() - 0.5);
     setCardList(shuffledCards);

@@ -7,7 +7,7 @@ function Card({ idx, clickCard, id, isFront, imgSrc }) {
 
   return (
     <CardWrapper $isFront={isFront} onClick={handleClickCard}>
-      <BackImg />
+      <BackImg src="/assets/img/back_img.png" />
       <FrontImg src={imgSrc} />
     </CardWrapper>
   );
@@ -20,6 +20,9 @@ const CardWrapper = styled.div`
 
   width: 100%;
   height: 25rem;
+
+  border: 0.1rem solid #000000;
+  border-radius: 1rem;
 
   transition: 0.4s;
   transform-style: preserve-3d;
@@ -34,7 +37,9 @@ const BackImg = styled.img`
   height: 100%;
   backface-visibility: hidden;
 
-  background: red;
+  border-radius: 1rem;
+
+  object-fit: contain;
 `;
 
 const FrontImg = styled.img`
@@ -45,6 +50,7 @@ const FrontImg = styled.img`
   backface-visibility: hidden;
   object-fit: cover;
 
-  background: royalblue;
+  border-radius: 1rem;
+
   transform: rotateY(180deg);
 `;

@@ -4,7 +4,7 @@ function HomeHeader({ currentPoint, clearPoint, resetStage }) {
   return (
     <HomeHeaderWrapper>
       <ResetButton onClick={resetStage}>RESET</ResetButton>
-      <HomeHeaderTitle>카드 뒤집기</HomeHeaderTitle>
+      <HomeHeaderTitle>세숑 뒤집기</HomeHeaderTitle>
       <PointCounter>
         ( {currentPoint} / {clearPoint} )
       </PointCounter>
