@@ -19,7 +19,7 @@ const CardWrapper = styled.div`
   position: relative;
 
   width: 100%;
-  height: 100%;
+  height: 25rem;
 
   transition: 0.4s;
   transform-style: preserve-3d;

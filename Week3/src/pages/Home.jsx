@@ -36,16 +36,46 @@ const dummyCardList = [
     imgSrc: "../assets/img/sechon_6.png",
     isClear: false,
   },
+  {
+    id: 7,
+    imgSrc: "../assets/img/sechon_6.png",
+    isClear: false,
+  },
+  {
+    id: 8,
+    imgSrc: "../assets/img/sechon_6.png",
+    isClear: false,
+  },
+  {
+    id: 9,
+    imgSrc: "../assets/img/sechon_6.png",
+    isClear: false,
+  },
 ];
 
 function Home() {
   const [cardList, setCardList] = useState([]);
   const [currentPoint, setCurrentPoint] = useState(0);
-  const [clearPoint, setClearPoint] = useState(5);
+  const [clearPoint, setClearPoint] = useState(9);
   const [first, setFirst] = useState([]);
   const [second, setSecond] = useState([]);
   const [isDisabled, setIsDisabled] = useState(false);
   const [modalOn, setModalOn] = useState(false);
+
+  const handleClickEasyButton = () => {
+    setClearPoint(5);
+    resetStage();
+  };
+
+  const handleClickNormalButton = () => {
+    setClearPoint(7);
+    resetStage();
+  };
+
+  const handleClickHardButton = () => {
+    setClearPoint(9);
+    resetStage();
+  };
 
   const shuffleCards = () => {
     const shuffledDummyCards = dummyCardList.sort(() => Math.random() - 0.5);
@@ -54,10 +84,6 @@ function Home() {
     const shuffledCards = duplicatedCards.sort(() => Math.random() - 0.5);
     setCardList(shuffledCards);
   };
-
-  useEffect(() => {
-    shuffleCards();
-  }, [clearPoint]);
 
   const clickCard = (idx, id) => {
     if (!isDisabled) {
@@ -71,10 +97,12 @@ function Home() {
     shuffleCards();
   };
 
-  console.log(first, second);
+  useEffect(() => {
+    shuffleCards();
+  }, [clearPoint]);
 
   useEffect(() => {
-    currentPoint === clearPoint && setModalOn(true); // 모달 팝업 로직 구현 필요!!!
+    currentPoint === clearPoint && setModalOn(true);
   }, [currentPoint, clearPoint]);
 
   useEffect(() => {
@@ -109,9 +137,29 @@ function Home() {
           resetStage={resetStage}
         />
       )}
-      <HomePageWrapper>
+      <div>
         <HomeHeader currentPoint={currentPoint} clearPoint={clearPoint} />
         <HomeBodyWrapper>
+          <LevelButtonContainer>
+            <LevelButton
+              $clearPoint={clearPoint}
+              onClick={handleClickEasyButton}
+            >
+              Easy
+            </LevelButton>
+            <LevelButton
+              $clearPoint={clearPoint}
+              onClick={handleClickNormalButton}
+            >
+              Normal
+            </LevelButton>
+            <LevelButton
+              $clearPoint={clearPoint}
+              onClick={handleClickHardButton}
+            >
+              Hard
+            </LevelButton>
+          </LevelButtonContainer>
           <CardGrid
             cardList={cardList}
             first={first}
@@ -120,22 +168,46 @@ function Home() {
             clickCard={clickCard}
           />
         </HomeBodyWrapper>
-      </HomePageWrapper>
+      </div>
     </React.Fragment>
   );
 }
 
 export default Home;
 
-const HomePageWrapper = styled.div`
-  height: 100vh;
-`;
-
 const HomeBodyWrapper = styled.section`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  row-gap: 5rem;
 
-  height: calc(100% - 20rem);
-  padding: 0 20rem;
+  padding: 5rem 20rem 10rem 20rem;
+`;
+
+const LevelButtonContainer = styled.article`
+  display: flex;
+  column-gap: 5rem;
+`;
+
+const LevelButton = styled.button`
+  width: 10rem;
+  height: 5rem;
+
+  color: white;
+
+  border-radius: 1rem;
+
+  &:first-child {
+    background-color: ${({ $clearPoint }) =>
+      $clearPoint === 5 ? "#87ceeb" : "#db7093"};
+  }
+  &:nth-child(2) {
+    background-color: ${({ $clearPoint }) =>
+      $clearPoint === 7 ? "#87ceeb" : "#db7093"};
+  }
+  &:last-child {
+    background-color: ${({ $clearPoint }) =>
+      $clearPoint === 9 ? "#87ceeb" : "#db7093"};
+  }
 `;
