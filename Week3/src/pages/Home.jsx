@@ -138,7 +138,11 @@ function Home() {
         />
       )}
       <div>
-        <HomeHeader currentPoint={currentPoint} clearPoint={clearPoint} />
+        <HomeHeader
+          currentPoint={currentPoint}
+          clearPoint={clearPoint}
+          resetStage={resetStage}
+        />
         <HomeBodyWrapper>
           <LevelButtonContainer>
             <LevelButton
