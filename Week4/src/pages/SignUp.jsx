@@ -47,17 +47,7 @@ function SignUp() {
     {
       buttonText: "회원가입",
       handleClickFunc: () =>
-        postSignUp(
-          id,
-          password,
-          nickname,
-          phone,
-          () => {
-            alert("회원가입이 완료되었습니다~!!");
-            navigate("/");
-          },
-          (err) => alert(err)
-        ),
+        postSignUp(id, password, nickname, phone, navigate),
     },
     {
       buttonText: "뒤로가기",

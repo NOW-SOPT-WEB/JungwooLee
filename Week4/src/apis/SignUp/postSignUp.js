@@ -1,6 +1,6 @@
 import { api } from "../../lib/api";
 
-export const postSignUp = (id, password, nickname, phone, resolve, reject) => {
+export const postSignUp = (id, password, nickname, phone, navigate) => {
   api
     .post("/member/join", {
       authenticationId: id,
@@ -9,9 +9,10 @@ export const postSignUp = (id, password, nickname, phone, resolve, reject) => {
       phone: phone,
     })
     .then(() => {
-      resolve();
+      alert("회원가입이 완료되었습니다~!!");
+      navigate("/");
     })
     .catch((err) => {
-      reject(err.response.data.message);
+      alert(err.response.data.message);
     });
 };
