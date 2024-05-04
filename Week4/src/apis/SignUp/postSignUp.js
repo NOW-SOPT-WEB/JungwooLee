@@ -8,8 +8,8 @@ export const postSignUp = (id, password, nickname, phone, navigate) => {
       nickname: nickname,
       phone: phone,
     })
-    .then(() => {
-      alert("회원가입이 완료되었습니다~!!");
+    .then((res) => {
+      alert(res.data.message);
       navigate("/");
     })
     .catch((err) => {
