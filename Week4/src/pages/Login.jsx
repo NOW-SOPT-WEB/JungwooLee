@@ -1,20 +1,35 @@
+import { useState } from "react";
 import styled from "styled-components";
+import InputContainer from "../components/Common/InputContainer";
 
 function Login() {
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+
+  const inputPropertyArr = [
+    {
+      category: "ID",
+      placeholder: "아이디를 입력해주세요",
+      inputState: id,
+      setInputState: setId,
+    },
+    {
+      category: "PW",
+      placeholder: "비밀번호를 입력해주세요",
+      inputState: password,
+      setInputState: setPassword,
+    },
+  ];
+
   return (
     <LoginPageWrapper>
       <LoginBox>
         <LoginTitle>Login</LoginTitle>
         <TitleImg src="/assets/img/sprout.png" />
         <InputSection>
-          <InputContainer>
-            <InputCategory>ID</InputCategory>
-            <InputBox />
-          </InputContainer>
-          <InputContainer>
-            <InputCategory>PW</InputCategory>
-            <InputBox />
-          </InputContainer>
+          {inputPropertyArr.map((el, idx) => (
+            <InputContainer key={`input-${idx}`} {...el} />
+          ))}
         </InputSection>
         <ButtonSection>
           <StyledButton>로그인</StyledButton>
@@ -70,26 +85,6 @@ const InputSection = styled.section`
 
   width: 100%;
   margin-top: 5rem;
-`;
-
-const InputContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
-`;
-
-const InputCategory = styled.h2`
-  font-size: 2rem;
-  font-weight: 500;
-`;
-
-const InputBox = styled.input`
-  width: 80%;
-  height: 4rem;
-
-  padding-left: 1rem;
 `;
 
 const ButtonSection = styled.section`
