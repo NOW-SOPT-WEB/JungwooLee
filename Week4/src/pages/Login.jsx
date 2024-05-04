@@ -1,10 +1,16 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import InputContainer from "../components/Common/InputContainer";
+import StyledButton from "../components/Common/StyledButton";
 
 function Login() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+
+  console.log(id, password);
+
+  const navigate = useNavigate();
 
   const inputPropertyArr = [
     {
@@ -21,6 +27,19 @@ function Login() {
     },
   ];
 
+  const buttonPropertyArr = [
+    {
+      buttonText: "로그인",
+      handleClickFunc: () => {}, // 로그인 api 쏘고 홈으로 이동
+    },
+    {
+      buttonText: "회원가입",
+      handleClickFunc: () => {
+        navigate("/signup");
+      },
+    },
+  ];
+
   return (
     <LoginPageWrapper>
       <LoginBox>
@@ -32,8 +51,9 @@ function Login() {
           ))}
         </InputSection>
         <ButtonSection>
-          <StyledButton>로그인</StyledButton>
-          <StyledButton>회원가입</StyledButton>
+          {buttonPropertyArr.map((el, idx) => (
+            <StyledButton key={`button-${idx}`} {...el} />
+          ))}
         </ButtonSection>
       </LoginBox>
     </LoginPageWrapper>
@@ -92,13 +112,4 @@ const ButtonSection = styled.section`
   gap: 5rem;
 
   margin-top: 5rem;
-`;
-
-const StyledButton = styled.button`
-  width: 10rem;
-  height: 5rem;
-
-  font-size: 1.7rem;
-
-  background-color: #96c040;
 `;
