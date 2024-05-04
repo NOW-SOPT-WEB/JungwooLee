@@ -3,7 +3,9 @@ import styled from "styled-components";
 function HomeHeader({ currentPoint, clearPoint, resetStage }) {
   return (
     <HomeHeaderWrapper>
-      <ResetButton onClick={resetStage}>RESET</ResetButton>
+      <ResetButton onClick={resetStage} type="button">
+        RESET
+      </ResetButton>
       <HomeHeaderTitle>세숑 뒤집기</HomeHeaderTitle>
       <PointCounter>
         ( {currentPoint} / {clearPoint} )

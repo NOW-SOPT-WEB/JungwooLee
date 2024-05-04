@@ -99,18 +99,21 @@ function Home() {
         <HomeBodyWrapper>
           <LevelButtonContainer>
             <LevelButton
+              type="button"
               $clearPoint={clearPoint}
               onClick={handleClickEasyButton}
             >
               Easy
             </LevelButton>
             <LevelButton
+              type="button"
               $clearPoint={clearPoint}
               onClick={handleClickNormalButton}
             >
               Normal
             </LevelButton>
             <LevelButton
+              type="button"
               $clearPoint={clearPoint}
               onClick={handleClickHardButton}
             >
