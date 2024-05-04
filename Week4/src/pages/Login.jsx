@@ -8,8 +8,6 @@ function Login() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
 
-  console.log(id, password);
-
   const navigate = useNavigate();
 
   const inputPropertyArr = [
