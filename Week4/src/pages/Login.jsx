@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { postLogin } from "../apis/Login/postLogin";
 import InputContainer from "../components/Common/InputContainer";
 import StyledButton from "../components/Common/StyledButton";
 
@@ -28,7 +29,7 @@ function Login() {
   const buttonPropertyArr = [
     {
       buttonText: "로그인",
-      handleClickFunc: () => {}, // 로그인 api 쏘고 홈으로 이동
+      handleClickFunc: () => postLogin(id, password, navigate),
     },
     {
       buttonText: "회원가입",
