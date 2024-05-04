@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { postSignUp } from "../apis/SignUp/postSignUp";
 import InputContainer from "../components/Common/InputContainer";
 import StyledButton from "../components/Common/StyledButton";
 
@@ -45,13 +46,19 @@ function SignUp() {
   const buttonPropertyArr = [
     {
       buttonText: "회원가입",
-      handleClickFunc: () => {}, // 회원가입 api 쏘고 로그인으로 이동
+      handleClickFunc: () =>
+        postSignUp(
+          id,
+          password,
+          nickname,
+          phone,
+          () => navigate("/"),
+          (err) => alert(err)
+        ),
     },
     {
       buttonText: "뒤로가기",
-      handleClickFunc: () => {
-        navigate(-1);
-      },
+      handleClickFunc: () => navigate(-1),
     },
   ];
 
