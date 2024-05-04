@@ -52,7 +52,10 @@ function SignUp() {
           password,
           nickname,
           phone,
-          () => navigate("/"),
+          () => {
+            alert("회원가입이 완료되었습니다~!!");
+            navigate("/");
+          },
           (err) => alert(err)
         ),
     },
