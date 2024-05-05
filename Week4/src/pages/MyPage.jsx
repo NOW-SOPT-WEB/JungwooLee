@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { IcAngleDown } from "../../public/assets/svg/icon";
+import { getMyInfo } from "../apis/MyPage/getMyInfo";
 import StyledButton from "../components/Common/StyledButton";
 import CheckPasswordInputContainer from "../components/MyPage/CheckPasswordInputContainer";
 import InfoContainer from "../components/MyPage/InfoContainer";
@@ -11,8 +12,7 @@ function MyPage() {
   const { userId } = useParams();
 
   const [myInfo, setMyInfo] = useState({
-    id: "",
-    password: "",
+    authenticationId: "",
     nickname: "",
     phone: "",
   });
@@ -21,14 +21,10 @@ function MyPage() {
   const [newPassword, setNewPassword] = useState("");
   const [newPasswordCheck, setnewPasswordCheck] = useState("");
 
-  useEffect(() => {
-    setMyInfo({});
-  }, []);
-
   const infoPropertyArr = [
     {
       category: "ID",
-      value: myInfo.id,
+      value: myInfo.authenticationId,
     },
     {
       category: "닉네임",
@@ -64,6 +60,16 @@ function MyPage() {
   const handleClickToggleButton = () => {
     setIsToggleOpen(!isToggleOpen);
   };
+
+  const fetchMyInfo = async () => {
+    const myInfo = await getMyInfo(userId);
+    console.log(myInfo);
+    myInfo && setMyInfo(myInfo);
+  };
+
+  useEffect(() => {
+    fetchMyInfo();
+  }, []);
 
   return (
     <MyPageWrapper>
