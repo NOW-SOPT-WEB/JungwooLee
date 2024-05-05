@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { postSignUp } from "../apis/SignUp/postSignUp";
@@ -13,35 +13,39 @@ function SignUp() {
 
   const navigate = useNavigate();
 
-  const firstPropertyArr = [
-    {
-      category: "ID",
-      placeholder: "아이디를 입력해주세요",
-      inputState: id,
-      setInputState: setId,
-    },
-    {
-      category: "PW",
-      placeholder: "비밀번호를 입력해주세요",
-      inputState: password,
-      setInputState: setPassword,
-    },
-  ];
+  const firstPropertyArr = useMemo(() => {
+    return [
+      {
+        category: "ID",
+        placeholder: "아이디를 입력해주세요",
+        inputState: id,
+        setInputState: setId,
+      },
+      {
+        category: "PW",
+        placeholder: "비밀번호를 입력해주세요",
+        inputState: password,
+        setInputState: setPassword,
+      },
+    ];
+  }, [id, password]);
 
-  const secondPropertyArr = [
-    {
-      category: "닉네임",
-      placeholder: "닉네임을 입력해주세요",
-      inputState: nickname,
-      setInputState: setNickname,
-    },
-    {
-      category: "전화번호",
-      placeholder: "전화번호를 입력해주세요",
-      inputState: phone,
-      setInputState: setPhone,
-    },
-  ];
+  const secondPropertyArr = useMemo(() => {
+    return [
+      {
+        category: "닉네임",
+        placeholder: "닉네임을 입력해주세요",
+        inputState: nickname,
+        setInputState: setNickname,
+      },
+      {
+        category: "전화번호",
+        placeholder: "전화번호를 입력해주세요",
+        inputState: phone,
+        setInputState: setPhone,
+      },
+    ];
+  }, [nickname, phone]);
 
   const buttonPropertyArr = [
     {

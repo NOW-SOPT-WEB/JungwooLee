@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { IcAngleDown } from "../../public/assets/svg/icon";
@@ -22,41 +22,45 @@ function MyPage() {
   const [newPassword, setNewPassword] = useState("");
   const [newPasswordVerification, setNewPasswordVerification] = useState("");
 
-  const infoPropertyArr = [
-    {
-      category: "ID",
-      value: myInfo.authenticationId,
-    },
-    {
-      category: "닉네임",
-      value: myInfo.nickname,
-    },
-    {
-      category: "전화번호",
-      value: myInfo.phone,
-    },
-  ];
+  const infoPropertyArr = useMemo(() => {
+    [
+      {
+        category: "ID",
+        value: myInfo.authenticationId,
+      },
+      {
+        category: "닉네임",
+        value: myInfo.nickname,
+      },
+      {
+        category: "전화번호",
+        value: myInfo.phone,
+      },
+    ];
+  }, [myInfo]);
 
-  const checkPasswordInputPropertyArr = [
-    {
-      category: "기존 비밀번호",
-      placeholder: "기존 비밀번호를 입력해주세요",
-      inputState: previousPassword,
-      setInputState: setPreviousPassword,
-    },
-    {
-      category: "새로운 비밀번호",
-      placeholder: "새로운 비밀번호를 입력해주세요",
-      inputState: newPassword,
-      setInputState: setNewPassword,
-    },
-    {
-      category: "비밀번호 확인",
-      placeholder: "비밀번호를 한 번 더 입력해주세요",
-      inputState: newPasswordVerification,
-      setInputState: setNewPasswordVerification,
-    },
-  ];
+  const checkPasswordInputPropertyArr = useMemo(() => {
+    return [
+      {
+        category: "기존 비밀번호",
+        placeholder: "기존 비밀번호를 입력해주세요",
+        inputState: previousPassword,
+        setInputState: setPreviousPassword,
+      },
+      {
+        category: "새로운 비밀번호",
+        placeholder: "새로운 비밀번호를 입력해주세요",
+        inputState: newPassword,
+        setInputState: setNewPassword,
+      },
+      {
+        category: "비밀번호 확인",
+        placeholder: "비밀번호를 한 번 더 입력해주세요",
+        inputState: newPasswordVerification,
+        setInputState: setNewPasswordVerification,
+      },
+    ];
+  }, [previousPassword, newPassword, newPasswordVerification]);
 
   const handleClickToggleButton = () => {
     setIsToggleOpen(!isToggleOpen);
@@ -64,7 +68,6 @@ function MyPage() {
 
   const fetchMyInfo = async () => {
     const myInfo = await getMyInfo(userId);
-    console.log(myInfo);
     myInfo && setMyInfo(myInfo);
   };
 
