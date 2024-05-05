@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { IcAngleDown } from "../../public/assets/svg/icon";
 import { getMyInfo } from "../apis/MyPage/getMyInfo";
+import { patchPasswordChange } from "../apis/MyPage/patchPasswordChange";
 import StyledButton from "../components/Common/StyledButton";
 import CheckPasswordInputContainer from "../components/MyPage/CheckPasswordInputContainer";
 import InfoContainer from "../components/MyPage/InfoContainer";
@@ -17,9 +18,9 @@ function MyPage() {
     phone: "",
   });
   const [isToggleOpen, setIsToggleOpen] = useState(false);
-  const [pastPassword, setPastPassword] = useState("");
+  const [previousPassword, setPreviousPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const [newPasswordCheck, setnewPasswordCheck] = useState("");
+  const [newPasswordVerification, setNewPasswordVerification] = useState("");
 
   const infoPropertyArr = [
     {
@@ -40,8 +41,8 @@ function MyPage() {
     {
       category: "기존 비밀번호",
       placeholder: "기존 비밀번호를 입력해주세요",
-      inputState: pastPassword,
-      setInputState: setPastPassword,
+      inputState: previousPassword,
+      setInputState: setPreviousPassword,
     },
     {
       category: "새로운 비밀번호",
@@ -52,8 +53,8 @@ function MyPage() {
     {
       category: "비밀번호 확인",
       placeholder: "비밀번호를 한 번 더 입력해주세요",
-      inputState: newPasswordCheck,
-      setInputState: setnewPasswordCheck,
+      inputState: newPasswordVerification,
+      setInputState: setNewPasswordVerification,
     },
   ];
 
@@ -92,11 +93,24 @@ function MyPage() {
                   <CheckPasswordInputContainer key={`input-${idx}`} {...el} />
                 ))}
               </CheckPasswordInputSection>
-              <StyledButton buttonText={"비밀번호 변경"} />
+              <StyledButton
+                type="button"
+                buttonText={"비밀번호 변경"}
+                handleClickFunc={() =>
+                  patchPasswordChange(
+                    userId,
+                    previousPassword,
+                    newPassword,
+                    newPasswordVerification,
+                    navigate
+                  )
+                }
+              />
             </PasswordChangeSection>
           )}
         </PasswordChangeSectionWrapper>
         <StyledButton
+          type="button"
           buttonText={"홈으로"}
           handleClickFunc={() => navigate(`/home/${userId}`)}
         />

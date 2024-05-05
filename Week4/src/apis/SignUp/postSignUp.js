@@ -9,10 +9,12 @@ export const postSignUp = (id, password, nickname, phone, navigate) => {
       phone: phone,
     })
     .then((res) => {
+      console.log(res);
       alert(res.data.message);
       navigate("/");
     })
     .catch((err) => {
+      console.log(err);
       alert(err.response.data.message);
     });
 };
