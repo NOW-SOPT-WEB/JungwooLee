@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="cart.style.css" />
+    <link rel="stylesheet" href="reset.css" />
+    <title>장바구니 페이지</title>
+  </head>
+  <body>
+    <header class="header">
+      <button class="home_button" type="button">
+        <img
+          class="img_header_logo"
+          src="./assets/png/img_logo.png"
+          alt="헤더 로고 이미지"
+        />
+      </button>
+      <h1 class="header_title">장바구니 페이지</h1>
+      <button type="button" class="hamburger_button">
+        <img
+          class="ic_hamburger_button"
+          src="./assets/svg/ic_hamburger_button.svg"
+          alt="헤더 메뉴 버튼"
+        />
+      </button>
+    </header>
+    <main class="cart_body_wrapper">
+      <section class="table_wrapper">
+        <table class="cart_table">
+          <thead class="cart_table_header">
+            <th class="cart_table_th">
+              <input type="checkbox" class="checkbox_all" />
+            </th>
+            <th class="cart_table_th" colspan="2">상품 정보</th>
+            <th class="cart_table_th">상품 금액</th>
+            <th class="cart_table_th">카테고리</th>
+            <th class="cart_table_th">비고</th>
+          </thead>
+          <tbody class="cart_table_body"></tbody>
+        </table>
+      </section>
+      <section class="button_wrapper">
+        <button class="cart_button buy_modal_show_button">구매하기</button>
+        <button class="cart_button home_button">홈으로</button>
+      </section>
+    </main>
+    <article class="buy_modal">
+      <div class="buy_modal_wrapper">
+        <button class="modal_x_button" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+            <path
+              d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+            />
+          </svg>
+        </button>
+        <h2 class="buy_modal_title">구매 목록</h2>
+        <ul class="buy_items_list"></ul>
+        <section class="bottom_section">
+          <p class="total_price_text">
+            총 금액 : <span class="total_price"></span>원
+          </p>
+          <section class="modal_button_section">
+            <button class="modal_button buy_button" type="button">구매</button>
+            <button class="modal_button cancel_button" type="button">
+              취소
+            </button>
+          </section>
+        </section>
+      </div>
+    </article>
+    <nav class="right_menu_modal modal_hide">
+      <button class="close_modal_button" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path
+            d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+          />
+        </svg>
+      </button>
+      <ul class="menu_list">
+        <li class="menu_list_item"><a>관심 상품 목록</a></li>
+        <li class="menu_list_item"><a>관리자 페이지</a></li>
+        <li class="menu_list_item"><a href="./cart.html">장바구니</a></li>
+      </ul>
+    </nav>
+  </body>
+  <script src="cart.js" type="module"></script>
+</html>
