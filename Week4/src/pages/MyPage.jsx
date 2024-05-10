@@ -23,7 +23,7 @@ function MyPage() {
   const [newPasswordVerification, setNewPasswordVerification] = useState("");
 
   const infoPropertyArr = useMemo(() => {
-    [
+    return [
       {
         category: "ID",
         value: myInfo.authenticationId,
@@ -80,7 +80,7 @@ function MyPage() {
       <MyInfoBox>
         <MyInfoTitle>MyPage</MyInfoTitle>
         <InfoSection>
-          {infoPropertyArr.map((el, idx) => (
+          {infoPropertyArr?.map((el, idx) => (
             <InfoContainer key={`info-${idx}`} {...el} />
           ))}
         </InfoSection>
